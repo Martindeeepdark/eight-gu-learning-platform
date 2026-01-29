@@ -1,15 +1,15 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import AppLayout from '../components/layout/AppLayout';
 import Home from '../pages/Home/index';
 import Login from '../pages/Login/index';
 import Register from '../pages/Register/index';
 import KnowledgeList from '../pages/Knowledge/List';
 import KnowledgeDetail from '../pages/Knowledge/Detail';
 import LearningDashboard from '../pages/Learning/Dashboard';
-import LearningGraph from '../pages/Learning/Graph';
 import ExerciseList from '../pages/Exercise/List';
 import ExercisePractice from '../pages/Exercise/Practice';
-import ExerciseWrong from '../pages/Exercise/Wrong';
+import WrongExercises from '../pages/Exercise/Wrong';
 import Profile from '../pages/Profile/index';
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -26,7 +26,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <AppLayout><Home /></AppLayout>,
   },
   {
     path: '/login',
@@ -38,35 +38,31 @@ const router = createBrowserRouter([
   },
   {
     path: '/knowledge',
-    element: <ProtectedRoute><KnowledgeList /></ProtectedRoute>,
+    element: <AppLayout><KnowledgeList /></AppLayout>,
   },
   {
     path: '/knowledge/:id',
-    element: <ProtectedRoute><KnowledgeDetail /></ProtectedRoute>,
+    element: <ProtectedRoute><AppLayout><KnowledgeDetail /></AppLayout></ProtectedRoute>,
   },
   {
     path: '/learning',
-    element: <ProtectedRoute><LearningDashboard /></ProtectedRoute>,
-  },
-  {
-    path: '/learning/graph',
-    element: <ProtectedRoute><LearningGraph /></ProtectedRoute>,
+    element: <AppLayout><LearningDashboard /></AppLayout>,
   },
   {
     path: '/exercises',
-    element: <ProtectedRoute><ExerciseList /></ProtectedRoute>,
+    element: <AppLayout><ExerciseList /></AppLayout>,
   },
   {
     path: '/exercises/:id',
-    element: <ProtectedRoute><ExercisePractice /></ProtectedRoute>,
+    element: <ProtectedRoute><AppLayout><ExercisePractice /></AppLayout></ProtectedRoute>,
   },
   {
     path: '/exercises/wrong',
-    element: <ProtectedRoute><ExerciseWrong /></ProtectedRoute>,
+    element: <ProtectedRoute><AppLayout><WrongExercises /></AppLayout></ProtectedRoute>,
   },
   {
     path: '/profile',
-    element: <ProtectedRoute><Profile /></ProtectedRoute>,
+    element: <ProtectedRoute><AppLayout><Profile /></AppLayout></ProtectedRoute>,
   },
 ]);
 
