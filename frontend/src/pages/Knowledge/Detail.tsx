@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Card, Button, Tag, Breadcrumb } from 'antd';
 import { useParams, useNavigate } from 'react-router-dom';
-import { knowledgeService } from '../../../services/knowledge';
-import { progressService } from '../../../services/progress';
-import type { KnowledgePoint } from '../../../types';
+import { knowledgeService } from '../../services/knowledge';
+import { progressService } from '../../services/progress';
+import type { KnowledgePoint } from '../../types';
 
 const KnowledgeDetail = () => {
   const { id } = useParams<{ id: string }>();

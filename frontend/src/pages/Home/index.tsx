@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Card, Statistic, Button, Row, Col } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { knowledgeService } from '../services/knowledge';
-import type { KnowledgePoint } from '../types';
+import { knowledgeService } from '../../services/knowledge';
+import type { KnowledgePoint } from '../../types';
 
 const Home = () => {
   const [knowledge, setKnowledge] = useState<KnowledgePoint[]>([]);

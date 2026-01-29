@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Card, List, Tag, Button, Pagination, Empty, Popconfirm, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { exerciseService } from '../../../services/exercise';
-import type { WrongExercise } from '../../../types';
+import { exerciseService } from '../../services/exercise';
+import type { WrongExercise } from '../../types';
 
 const WrongExercises = () => {
   const [exercises, setExercises] = useState<WrongExercise[]>([]);

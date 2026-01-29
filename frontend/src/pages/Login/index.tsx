@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Form, Input, Button, message, Card } from 'antd';
 import { useNavigate, Link } from 'react-router-dom';
-import { authService } from '../services/auth';
-import { useAuth } from '../hooks/useAuth';
-import type { LoginRequest } from '../services/auth';
+import { authService } from '../../services/auth';
+import { useAuth } from '../../hooks/useAuth';
+import type { LoginRequest } from '../../services/auth';
 
 const Login = () => {
   const [loading, setLoading] = useState(false);

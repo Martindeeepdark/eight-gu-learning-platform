@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Card, Radio, Button, message, Tag, Space, Alert } from 'antd';
 import { useParams, useNavigate } from 'react-router-dom';
-import { exerciseService } from '../../../services/exercise';
-import type { Exercise } from '../../../types';
+import { exerciseService } from '../../services/exercise';
+import type { Exercise } from '../../types';
 
 const ExercisePractice = () => {
   const { id } = useParams<{ id: string }>();

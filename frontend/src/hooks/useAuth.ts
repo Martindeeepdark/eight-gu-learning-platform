@@ -1,26 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useCallback } from 'react';
 import { store } from '../store';
 
 export const useAuth = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    setIsAuthenticated(store.auth.isAuthenticated);
+  const login = useCallback((user: any, token: string) => {
+    store.auth.login(user, token);
   }, []);
 
-  const login = (user: any, token: string) => {
-    store.auth.login(user, token);
-    setIsAuthenticated(true);
-  };
-
-  const logout = () => {
+  const logout = useCallback(() => {
     store.auth.logout();
-    setIsAuthenticated(false);
-  };
+  }, []);
 
   return {
     user: store.auth.user,
-    isAuthenticated,
+    isAuthenticated: store.auth.isAuthenticated,
     login,
     logout,
   };

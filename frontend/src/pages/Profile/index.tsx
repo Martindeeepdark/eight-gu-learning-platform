@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Card, Descriptions, Avatar, Button, Upload, message, Input } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import { useAuth } from '../../../hooks/useAuth';
-import { userService } from '../../../services/user';
-import type { User } from '../../../types';
+import { useAuth } from '../../hooks/useAuth';
+import { userService } from '../../services/user';
+import type { User } from '../../types';
 
 const Profile = () => {
   const { user } = useAuth();

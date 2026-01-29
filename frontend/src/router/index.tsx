@@ -1,5 +1,16 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import Home from '../pages/Home/index';
+import Login from '../pages/Login/index';
+import Register from '../pages/Register/index';
+import KnowledgeList from '../pages/Knowledge/List';
+import KnowledgeDetail from '../pages/Knowledge/Detail';
+import LearningDashboard from '../pages/Learning/Dashboard';
+import LearningGraph from '../pages/Learning/Graph';
+import ExerciseList from '../pages/Exercise/List';
+import ExercisePractice from '../pages/Exercise/Practice';
+import ExerciseWrong from '../pages/Exercise/Wrong';
+import Profile from '../pages/Profile/index';
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated } = useAuth();
@@ -15,47 +26,47 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>Home</div>,
+    element: <Home />,
   },
   {
     path: '/login',
-    element: <div>Login</div>,
+    element: <Login />,
   },
   {
     path: '/register',
-    element: <div>Register</div>,
+    element: <Register />,
   },
   {
     path: '/knowledge',
-    element: <ProtectedRoute><div>Knowledge List</div></ProtectedRoute>,
+    element: <ProtectedRoute><KnowledgeList /></ProtectedRoute>,
   },
   {
     path: '/knowledge/:id',
-    element: <ProtectedRoute><div>Knowledge Detail</div></ProtectedRoute>,
+    element: <ProtectedRoute><KnowledgeDetail /></ProtectedRoute>,
   },
   {
     path: '/learning',
-    element: <ProtectedRoute><div>Learning Dashboard</div></ProtectedRoute>,
+    element: <ProtectedRoute><LearningDashboard /></ProtectedRoute>,
   },
   {
     path: '/learning/graph',
-    element: <ProtectedRoute><div>Knowledge Graph</div></ProtectedRoute>,
+    element: <ProtectedRoute><LearningGraph /></ProtectedRoute>,
   },
   {
     path: '/exercises',
-    element: <ProtectedRoute><div>Exercises</div></ProtectedRoute>,
+    element: <ProtectedRoute><ExerciseList /></ProtectedRoute>,
   },
   {
     path: '/exercises/:id',
-    element: <ProtectedRoute><div>Exercise Detail</div></ProtectedRoute>,
+    element: <ProtectedRoute><ExercisePractice /></ProtectedRoute>,
   },
   {
     path: '/exercises/wrong',
-    element: <ProtectedRoute><div>Wrong Exercises</div></ProtectedRoute>,
+    element: <ProtectedRoute><ExerciseWrong /></ProtectedRoute>,
   },
   {
     path: '/profile',
-    element: <ProtectedRoute><div>Profile</div></ProtectedRoute>,
+    element: <ProtectedRoute><Profile /></ProtectedRoute>,
   },
 ]);
 

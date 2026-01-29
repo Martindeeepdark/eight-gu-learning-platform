@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { Card, Button, Select, Spin, Alert } from 'antd';
 import ReactFlow, { Node, Edge, Background, Controls, BackgroundVariant, Panel } from 'reactflow';
 import 'reactflow/dist/style.css';
-import { knowledgeService } from '../../../services/knowledge';
-import type { GraphData } from '../../../types';
+import { knowledgeService } from '../../services/knowledge';
+import type { GraphData } from '../../types';
 
 const KnowledgeGraph = () => {
   const [graphData, setGraphData] = useState<GraphData>({ nodes: [], edges: [] });
