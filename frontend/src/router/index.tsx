@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import AppLayout from '../components/layout/AppLayout';
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated } = useAuth();
@@ -15,7 +16,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>Home</div>,
+    element: <AppLayout><div>Home</div></AppLayout>,
   },
   {
     path: '/login',
@@ -27,35 +28,35 @@ const router = createBrowserRouter([
   },
   {
     path: '/knowledge',
-    element: <ProtectedRoute><div>Knowledge List</div></ProtectedRoute>,
+    element: <AppLayout><div>Knowledge List</div></AppLayout>,
   },
   {
     path: '/knowledge/:id',
-    element: <ProtectedRoute><div>Knowledge Detail</div></ProtectedRoute>,
+    element: <ProtectedRoute><AppLayout><div>Knowledge Detail</div></AppLayout></ProtectedRoute>,
   },
   {
     path: '/learning',
-    element: <ProtectedRoute><div>Learning Dashboard</div></ProtectedRoute>,
+    element: <AppLayout><div>Learning Dashboard</div></AppLayout>,
   },
   {
     path: '/learning/graph',
-    element: <ProtectedRoute><div>Knowledge Graph</div></ProtectedRoute>,
+    element: <ProtectedRoute><AppLayout><div>Knowledge Graph</div></AppLayout></ProtectedRoute>,
   },
   {
     path: '/exercises',
-    element: <ProtectedRoute><div>Exercises</div></ProtectedRoute>,
+    element: <AppLayout><div>Exercises</div></AppLayout>,
   },
   {
     path: '/exercises/:id',
-    element: <ProtectedRoute><div>Exercise Detail</div></ProtectedRoute>,
+    element: <ProtectedRoute><AppLayout><div>Exercise Practice</div></AppLayout></ProtectedRoute>,
   },
   {
     path: '/exercises/wrong',
-    element: <ProtectedRoute><div>Wrong Exercises</div></ProtectedRoute>,
+    element: <ProtectedRoute><AppLayout><div>Wrong Exercises</div></AppLayout></ProtectedRoute>,
   },
   {
     path: '/profile',
-    element: <ProtectedRoute><div>Profile</div></ProtectedRoute>,
+    element: <ProtectedRoute><AppLayout><div>Profile</div></AppLayout></ProtectedRoute>,
   },
 ]);
 
